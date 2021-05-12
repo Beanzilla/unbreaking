@@ -97,269 +97,267 @@ if mcl2 then
 end
 
 if mt_g then
-    local armor = rawget("3d_armor") or {} --error("[unbreaking] Failed to obtain API from 3d_armor!")
-    if armor then
-        -- Wood
-        if armor.config.material_wood then
-            armor:register_armor("unbreaking:helmet_wood", {
-		        description = S("Unbreakable Wood Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_wood.png",
-		        groups = {armor_head=1, armor_heal=0, armor_use=0, flammable=1},
-		        armor_groups = {fleshy=5},
-		        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
-	        })
-	        armor:register_armor("unbreaking:chestplate_wood", {
-		        description = S("Unbreakable Wood Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_wood.png",
-		        groups = {armor_torso=1, armor_heal=0, armor_use=0, flammable=1},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
-	        })
-	        armor:register_armor("unbreaking:leggings_wood", {
-		        description = S("Unbreakable Wood Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_wood.png",
-		        groups = {armor_legs=1, armor_heal=0, armor_use=0, flammable=1},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
-	        })
-	        armor:register_armor("unbreaking:boots_wood", {
-		        description = S("Unbreakable Wood Boots"),
-		        inventory_image = "3d_armor_inv_boots_wood.png",
-		        armor_groups = {fleshy=5},
-		        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
-		        groups = {armor_feet=1, armor_heal=0, armor_use=0, flammable=1},
-	        })
-        end
-        -- Cactus
-        if armor.config.material_cactus then
-            armor:register_armor("unbreaking:helmet_cactus", {
-	            description = S("Unbreakable Cactus Helmet"),
-	            inventory_image = "3d_armor_inv_helmet_cactus.png",
-	            groups = {armor_head=1, armor_heal=0, armor_use=0},
-	            armor_groups = {fleshy=5},
-	            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
-            })
-            armor:register_armor("unbreaking:chestplate_cactus", {
-	            description = S("Unbreakable Cactus Chestplate"),
-	            inventory_image = "3d_armor_inv_chestplate_cactus.png",
-	            groups = {armor_torso=1, armor_heal=0, armor_use=0},
-	            armor_groups = {fleshy=10},
-	            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
-            })
-            armor:register_armor("unbreakable:leggings_cactus", {
-	            description = S("Unbreakable Cactus Leggings"),
-	            inventory_image = "3d_armor_inv_leggings_cactus.png",
-	            groups = {armor_legs=1, armor_heal=0, armor_use=0},
-	            armor_groups = {fleshy=10},
-	            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
-            })
-            armor:register_armor("unbreakable:boots_cactus", {
-	            description = S("Unbreakable Cactus Boots"),
-	            inventory_image = "3d_armor_inv_boots_cactus.png",
-	            groups = {armor_feet=1, armor_heal=0, armor_use=0},
-	            armor_groups = {fleshy=5},
-	            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
-            })
-        end
-        -- Steel
-        if armor.config.material_steel then
-            armor:register_armor("unbreaking:helmet_steel", {
-		        description = S("Unbreakable Steel Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_steel.png",
-		        groups = {armor_head=1, armor_heal=0, armor_use=0,
-			        physics_speed=-0.01, physics_gravity=0.01},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	        })
-	        armor:register_armor("unbreaking:chestplate_steel", {
-		        description = S("Unbreakable Steel Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_steel.png",
-		        groups = {armor_torso=1, armor_heal=0, armor_use=0,
-			        physics_speed=-0.04, physics_gravity=0.04},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	        })
-	        armor:register_armor("unbreaking:leggings_steel", {
-		        description = S("Unbreakable Steel Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_steel.png",
-		        groups = {armor_legs=1, armor_heal=0, armor_use=0,
-			        physics_speed=-0.03, physics_gravity=0.03},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	        })
-	        armor:register_armor("unbreaking:boots_steel", {
-		        description = S("Unbreakable Steel Boots"),
-		        inventory_image = "3d_armor_inv_boots_steel.png",
-		        groups = {armor_feet=1, armor_heal=0, armor_use=0,
-			        physics_speed=-0.01, physics_gravity=0.01},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
-	        })
-        end
-        -- Bronze
-        if armor.config.material_bronze then
-        	armor:register_armor("unbreaking:helmet_bronze", {
-		        description = S("Unbreakable Bronze Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_bronze.png",
-		        groups = {armor_head=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.01, physics_gravity=0.01},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
-	        })
-	        armor:register_armor("unbreaking:chestplate_bronze", {
-		        description = S("Unbreakable Bronze Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_bronze.png",
-		        groups = {armor_torso=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.04, physics_gravity=0.04},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
-	        })
-	        armor:register_armor("unbreaking:leggings_bronze", {
-		        description = S("Unbreakable Bronze Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_bronze.png",
-		        groups = {armor_legs=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.03, physics_gravity=0.03},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
-	        })
-	        armor:register_armor("unbreaking:boots_bronze", {
-		        description = S("Unbreakable Bronze Boots"),
-		        inventory_image = "3d_armor_inv_boots_bronze.png",
-		        groups = {armor_feet=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.01, physics_gravity=0.01},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
-	        })
-        end
-        -- Diamond
-        if armor.config.material_diamond then
-	        armor:register_armor("unbreaking:helmet_diamond", {
-		        description = S("Unbreakable Diamond Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_diamond.png",
-		        groups = {armor_head=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:chestplate_diamond", {
-		        description = S("Unbreakable Diamond Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_diamond.png",
-		        groups = {armor_torso=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=20},
-		        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:leggings_diamond", {
-		        description = S("Unbreakable Diamond Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_diamond.png",
-		        groups = {armor_legs=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=20},
-		        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:boots_diamond", {
-		        description = S("Unbreakable Diamond Boots"),
-		        inventory_image = "3d_armor_inv_boots_diamond.png",
-		        groups = {armor_feet=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
-	        })
-        end
-        -- Gold
-        if armor.config.material_gold then
-	        armor:register_armor("unbreaking:helmet_gold", {
-		        description = S("Unbreakable Gold Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_gold.png",
-		        groups = {armor_head=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.02, physics_gravity=0.02},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
-	        })
-	        armor:register_armor("unbreaking:chestplate_gold", {
-		        description = S("Unbreakable Gold Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_gold.png",
-		        groups = {armor_torso=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.05, physics_gravity=0.05},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
-	        })
-	        armor:register_armor("unbreaking:leggings_gold", {
-		        description = S("Unbreakable Gold Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_gold.png",
-		        groups = {armor_legs=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.04, physics_gravity=0.04},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
-	        })
-	        armor:register_armor("unbreaking:boots_gold", {
-		        description = S("Unbreakable Gold Boots"),
-		        inventory_image = "3d_armor_inv_boots_gold.png",
-		        groups = {armor_feet=1, armor_heal=6, armor_use=0,
-			        physics_speed=-0.02, physics_gravity=0.02},
-		        armor_groups = {fleshy=10},
-		        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
-	        })
-        end
-        -- Mithril
-        if armor.config.material_mithril then
-	        armor:register_armor("unbreaking:helmet_mithril", {
-		        description = S("Unbreakable Mithril Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_mithril.png",
-		        groups = {armor_head=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:chestplate_mithril", {
-		        description = S("Unbreakable Mithril Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_mithril.png",
-		        groups = {armor_torso=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=20},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:leggings_mithril", {
-		        description = S("Unbreakable Mithril Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_mithril.png",
-		        groups = {armor_legs=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=20},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:boots_mithril", {
-		        description = S("Unbreakable Mithril Boots"),
-		        inventory_image = "3d_armor_inv_boots_mithril.png",
-		        groups = {armor_feet=1, armor_heal=12, armor_use=0},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-        end
-        -- Crystal
-        if armor.config.material_crystal then
-	        armor:register_armor("unbreaking:helmet_crystal", {
-		        description = S("Unbreakable Crystal Helmet"),
-		        inventory_image = "3d_armor_inv_helmet_crystal.png",
-		        groups = {armor_head=1, armor_heal=12, armor_use=0, armor_fire=1},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:chestplate_crystal", {
-		        description = S("Unbreakable Crystal Chestplate"),
-		        inventory_image = "3d_armor_inv_chestplate_crystal.png",
-		        groups = {armor_torso=1, armor_heal=12, armor_use=0, armor_fire=1},
-		        armor_groups = {fleshy=20},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:leggings_crystal", {
-		        description = S("Unbreakable Crystal Leggings"),
-		        inventory_image = "3d_armor_inv_leggings_crystal.png",
-		        groups = {armor_legs=1, armor_heal=12, armor_use=0, armor_fire=1},
-		        armor_groups = {fleshy=20},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-	        armor:register_armor("unbreaking:boots_crystal", {
-		        description = S("Unbreakable Crystal Boots"),
-		        inventory_image = "3d_armor_inv_boots_crystal.png",
-		        groups = {armor_feet=1, armor_heal=12, armor_use=0, physics_speed=1,
-				        physics_jump=0.5, armor_fire=1},
-		        armor_groups = {fleshy=15},
-		        damage_groups = {cracky=2, snappy=1, level=3},
-	        })
-        end
+    --local armor = armor:armor or error("[unbreaking] Failed to obtain API from 3d_armor!")
+    -- Wood
+    if armor.config.material_wood then
+        armor:register_armor(":unbreaking:helmet_wood", {
+	        description = S("Unbreakable Wood Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_wood.png",
+	        groups = {armor_head=1, armor_heal=0, armor_use=0, flammable=1},
+	        armor_groups = {fleshy=5},
+	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
+        })
+        armor:register_armor(":unbreaking:chestplate_wood", {
+	        description = S("Unbreakable Wood Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_wood.png",
+	        groups = {armor_torso=1, armor_heal=0, armor_use=0, flammable=1},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
+        })
+        armor:register_armor(":unbreaking:leggings_wood", {
+	        description = S("Unbreakable Wood Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_wood.png",
+	        groups = {armor_legs=1, armor_heal=0, armor_use=0, flammable=1},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
+        })
+        armor:register_armor(":unbreaking:boots_wood", {
+	        description = S("Unbreakable Wood Boots"),
+	        inventory_image = "3d_armor_inv_boots_wood.png",
+	        armor_groups = {fleshy=5},
+	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
+	        groups = {armor_feet=1, armor_heal=0, armor_use=0, flammable=1},
+        })
+    end
+    -- Cactus
+    if armor.config.material_cactus then
+        armor:register_armor(":unbreaking:helmet_cactus", {
+            description = S("Unbreakable Cactus Helmet"),
+            inventory_image = "3d_armor_inv_helmet_cactus.png",
+            groups = {armor_head=1, armor_heal=0, armor_use=0},
+            armor_groups = {fleshy=5},
+            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
+        })
+        armor:register_armor(":unbreaking:chestplate_cactus", {
+            description = S("Unbreakable Cactus Chestplate"),
+            inventory_image = "3d_armor_inv_chestplate_cactus.png",
+            groups = {armor_torso=1, armor_heal=0, armor_use=0},
+            armor_groups = {fleshy=10},
+            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
+        })
+        armor:register_armor(":unbreakable:leggings_cactus", {
+            description = S("Unbreakable Cactus Leggings"),
+            inventory_image = "3d_armor_inv_leggings_cactus.png",
+            groups = {armor_legs=1, armor_heal=0, armor_use=0},
+            armor_groups = {fleshy=10},
+            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
+        })
+        armor:register_armor(":unbreakable:boots_cactus", {
+            description = S("Unbreakable Cactus Boots"),
+            inventory_image = "3d_armor_inv_boots_cactus.png",
+            groups = {armor_feet=1, armor_heal=0, armor_use=0},
+            armor_groups = {fleshy=5},
+            damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
+        })
+    end
+    -- Steel
+    if armor.config.material_steel then
+        armor:register_armor(":unbreaking:helmet_steel", {
+	        description = S("Unbreakable Steel Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_steel.png",
+	        groups = {armor_head=1, armor_heal=0, armor_use=0,
+		        physics_speed=-0.01, physics_gravity=0.01},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
+        })
+        armor:register_armor(":unbreaking:chestplate_steel", {
+	        description = S("Unbreakable Steel Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_steel.png",
+	        groups = {armor_torso=1, armor_heal=0, armor_use=0,
+		        physics_speed=-0.04, physics_gravity=0.04},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
+        })
+        armor:register_armor(":unbreaking:leggings_steel", {
+	        description = S("Unbreakable Steel Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_steel.png",
+	        groups = {armor_legs=1, armor_heal=0, armor_use=0,
+		        physics_speed=-0.03, physics_gravity=0.03},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
+        })
+        armor:register_armor(":unbreaking:boots_steel", {
+	        description = S("Unbreakable Steel Boots"),
+	        inventory_image = "3d_armor_inv_boots_steel.png",
+	        groups = {armor_feet=1, armor_heal=0, armor_use=0,
+		        physics_speed=-0.01, physics_gravity=0.01},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=2, snappy=3, choppy=2, crumbly=1, level=2},
+        })
+    end
+    -- Bronze
+    if armor.config.material_bronze then
+    	armor:register_armor(":unbreaking:helmet_bronze", {
+	        description = S("Unbreakable Bronze Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_bronze.png",
+	        groups = {armor_head=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.01, physics_gravity=0.01},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
+        })
+        armor:register_armor(":unbreaking:chestplate_bronze", {
+	        description = S("Unbreakable Bronze Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_bronze.png",
+	        groups = {armor_torso=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.04, physics_gravity=0.04},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
+        })
+        armor:register_armor(":unbreaking:leggings_bronze", {
+	        description = S("Unbreakable Bronze Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_bronze.png",
+	        groups = {armor_legs=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.03, physics_gravity=0.03},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
+        })
+        armor:register_armor(":unbreaking:boots_bronze", {
+	        description = S("Unbreakable Bronze Boots"),
+	        inventory_image = "3d_armor_inv_boots_bronze.png",
+	        groups = {armor_feet=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.01, physics_gravity=0.01},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=3, snappy=2, choppy=2, crumbly=1, level=2},
+        })
+    end
+    -- Diamond
+    if armor.config.material_diamond then
+        armor:register_armor(":unbreaking:helmet_diamond", {
+	        description = S("Unbreakable Diamond Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_diamond.png",
+	        groups = {armor_head=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:chestplate_diamond", {
+	        description = S("Unbreakable Diamond Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_diamond.png",
+	        groups = {armor_torso=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=20},
+	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:leggings_diamond", {
+	        description = S("Unbreakable Diamond Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_diamond.png",
+	        groups = {armor_legs=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=20},
+	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:boots_diamond", {
+	        description = S("Unbreakable Diamond Boots"),
+	        inventory_image = "3d_armor_inv_boots_diamond.png",
+	        groups = {armor_feet=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
+        })
+    end
+    -- Gold
+    if armor.config.material_gold then
+        armor:register_armor(":unbreaking:helmet_gold", {
+	        description = S("Unbreakable Gold Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_gold.png",
+	        groups = {armor_head=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.02, physics_gravity=0.02},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
+        })
+        armor:register_armor(":unbreaking:chestplate_gold", {
+	        description = S("Unbreakable Gold Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_gold.png",
+	        groups = {armor_torso=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.05, physics_gravity=0.05},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
+        })
+        armor:register_armor(":unbreaking:leggings_gold", {
+	        description = S("Unbreakable Gold Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_gold.png",
+	        groups = {armor_legs=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.04, physics_gravity=0.04},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
+        })
+        armor:register_armor(":unbreaking:boots_gold", {
+	        description = S("Unbreakable Gold Boots"),
+	        inventory_image = "3d_armor_inv_boots_gold.png",
+	        groups = {armor_feet=1, armor_heal=6, armor_use=0,
+		        physics_speed=-0.02, physics_gravity=0.02},
+	        armor_groups = {fleshy=10},
+	        damage_groups = {cracky=1, snappy=2, choppy=2, crumbly=3, level=2},
+        })
+    end
+    -- Mithril
+    if armor.config.material_mithril then
+        armor:register_armor(":unbreaking:helmet_mithril", {
+	        description = S("Unbreakable Mithril Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_mithril.png",
+	        groups = {armor_head=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:chestplate_mithril", {
+	        description = S("Unbreakable Mithril Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_mithril.png",
+	        groups = {armor_torso=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=20},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:leggings_mithril", {
+	        description = S("Unbreakable Mithril Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_mithril.png",
+	        groups = {armor_legs=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=20},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:boots_mithril", {
+	        description = S("Unbreakable Mithril Boots"),
+	        inventory_image = "3d_armor_inv_boots_mithril.png",
+	        groups = {armor_feet=1, armor_heal=12, armor_use=0},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+    end
+    -- Crystal
+    if armor.config.material_crystal then
+        armor:register_armor(":unbreaking:helmet_crystal", {
+	        description = S("Unbreakable Crystal Helmet"),
+	        inventory_image = "3d_armor_inv_helmet_crystal.png",
+	        groups = {armor_head=1, armor_heal=12, armor_use=0, armor_fire=1},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:chestplate_crystal", {
+	        description = S("Unbreakable Crystal Chestplate"),
+	        inventory_image = "3d_armor_inv_chestplate_crystal.png",
+	        groups = {armor_torso=1, armor_heal=12, armor_use=0, armor_fire=1},
+	        armor_groups = {fleshy=20},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:leggings_crystal", {
+	        description = S("Unbreakable Crystal Leggings"),
+	        inventory_image = "3d_armor_inv_leggings_crystal.png",
+	        groups = {armor_legs=1, armor_heal=12, armor_use=0, armor_fire=1},
+	        armor_groups = {fleshy=20},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
+        armor:register_armor(":unbreaking:boots_crystal", {
+	        description = S("Unbreakable Crystal Boots"),
+	        inventory_image = "3d_armor_inv_boots_crystal.png",
+	        groups = {armor_feet=1, armor_heal=12, armor_use=0, physics_speed=1,
+			        physics_jump=0.5, armor_fire=1},
+	        armor_groups = {fleshy=15},
+	        damage_groups = {cracky=2, snappy=1, level=3},
+        })
         minetest.log("action", "[unbreaking] 3d_armors Armor is now Unbreakable!")
     end
 elseif mcl2 then
@@ -461,280 +459,50 @@ end
 
 -- Crafts
 if mt_g then
-    local armor = rawget(_G, "3d_armor") or {} -- error("[unbreaking] Failed to obtain API from 3d_armor!")
-    for k, v in pairs(armor.materials) do
+    --local armor = rawget(_G, "3d_armor") or {} -- error("[unbreaking] Failed to obtain API from 3d_armor!")
+    local materials = {
+		wood = "group:wood",
+		cactus = "default:cactus",
+		steel = "default:steel_ingot",
+		bronze = "default:bronze_ingot",
+		diamond = "default:diamond",
+		gold = "default:gold_ingot",
+		mithril = "moreores:mithril_ingot",
+		crystal = "ethereal:crystal_ingot",
+	}
+    for k, v in pairs(materials) do
         -- Ensure we only register crafts we should do (Not everything)
-        if k == "group:wood" and armor.config.material_wood then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "default:cactus" and armor.config.material_cactus then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "default:steel_ingot" and armor.config.material_steel then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "default:bronze_ingot" and armor.config.material_bronze then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "default:diamond" and armor.config.material_diamond then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "default:gold_ingot" and armor.config.material_gold then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "moreores:mithril_ingot" and armor.config.material_mithril then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
-        if k == "ethereal:crystal_ingot" and armor.config.material_crystal then
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:helmet_"..k,
-                recipe = {
-                    "3d_armor:helmet_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:chestplate_"..k,
-                recipe = {
-                    "3d_armor:chestplate_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:leggings_"..k,
-                recipe = {
-                    "3d_armor:leggings_"..k,
-                    v
-                }
-            })
-            mintest.register_craft({
-                type = "shapeless",
-                output = "unbreaking:boots_"..k,
-                recipe = {
-                    "3d_armor:boots_"..k,
-                    v
-                }
-            })
-        end
+        minetest.register_craft({
+            type = "shapeless",
+            output = "unbreaking:helmet_"..k,
+            recipe = {
+                "3d_armor:helmet_"..k,
+                v
+            }
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            output = "unbreaking:chestplate_"..k,
+            recipe = {
+                "3d_armor:chestplate_"..k,
+                v
+            }
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            output = "unbreaking:leggings_"..k,
+            recipe = {
+                "3d_armor:leggings_"..k,
+                v
+            }
+        })
+        minetest.register_craft({
+            type = "shapeless",
+            output = "unbreaking:boots_"..k,
+            recipe = {
+                "3d_armor:boots_"..k,
+                v
+            }
+        })
     end
 end
