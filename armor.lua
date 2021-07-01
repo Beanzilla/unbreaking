@@ -14,10 +14,10 @@ if mcl2 then
 	    longdesc = S("This is a piece of equippable armor which reduces the amount of damage you receive."),
 	    usage = S("To equip it, put it on the corresponding armor slot in your inventory menu."),
 	    elements = { 
-            head = { name = "helmet", description = "Helmet", durability = unbreaking_uses.6857, index = 2,},
+            head = { name = "helmet", description = "Helmet", durability = 0.6857, index = 2,},
 		    torso = {name = "chestplate", description = "Chestplate", durability = 1.0, index = 3,},
-		    legs = {name = "leggings", description = "Leggings", durability = unbreaking_uses.9375, index = 4,},
-		    feet = {name = "boots", description = "Boots", durability = unbreaking_uses.8125, index = 5,}
+		    legs = {name = "leggings", description = "Leggings", durability = 0.9375, index = 4,},
+		    feet = {name = "boots", description = "Boots", durability = 0.8125, index = 5,}
 	    },
 	    player_view_range_factors = {},
     }
