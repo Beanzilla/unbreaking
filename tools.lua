@@ -34,12 +34,12 @@ if unbreaking_pick then
 	if mt_g then
 	    minetest.register_tool("unbreaking:pick_wood", {
 		    description = S("Unbreakable Wooden Pickaxe"),
-		    inventory_image = "default_tool_woodpick.png",
+		    inventory_image = "unbreaking_tool_woodpick.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.2,
 			    max_drop_level=0,
 			    groupcaps={
-				    cracky = {times={[3]=1.60}, uses=0, maxlevel=1},
+				    cracky = {times={[3]=1.60}, uses=unbreaking_uses, maxlevel=1},
 			    },
 			    damage_groups = {fleshy=2},
 		    },
@@ -49,12 +49,12 @@ if unbreaking_pick then
 
 	    minetest.register_tool("unbreaking:pick_stone", {
 		    description = S("Unbreakable Stone Pickaxe"),
-		    inventory_image = "default_tool_stonepick.png",
+		    inventory_image = "unbreaking_tool_stonepick.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.3,
 			    max_drop_level=0,
 			    groupcaps={
-				    cracky = {times={[2]=2.0, [3]=1.00}, uses=0, maxlevel=1},
+				    cracky = {times={[2]=2.0, [3]=1.00}, uses=unbreaking_uses, maxlevel=1},
 			    },
 			    damage_groups = {fleshy=3},
 		    },
@@ -64,12 +64,12 @@ if unbreaking_pick then
 
 	    minetest.register_tool("unbreaking:pick_bronze", {
 		    description = S("Unbreakable Bronze Pickaxe"),
-		    inventory_image = "default_tool_bronzepick.png",
+		    inventory_image = "unbreaking_tool_bronzepick.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=1,
 			    groupcaps={
-				    cracky = {times={[1]=4.50, [2]=1.80, [3]=0.90}, uses=0, maxlevel=2},
+				    cracky = {times={[1]=4.50, [2]=1.80, [3]=0.90}, uses=unbreaking_uses, maxlevel=2},
 			    },
 			    damage_groups = {fleshy=4},
 		    },
@@ -79,12 +79,12 @@ if unbreaking_pick then
 
 	    minetest.register_tool("unbreaking:pick_steel", {
 		    description = S("Unbreakable Steel Pickaxe"),
-		    inventory_image = "default_tool_steelpick.png",
+		    inventory_image = "unbreaking_tool_steelpick.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=1,
 			    groupcaps={
-				    cracky = {times={[1]=4.00, [2]=1.60, [3]=0.80}, uses=0, maxlevel=2},
+				    cracky = {times={[1]=4.00, [2]=1.60, [3]=0.80}, uses=unbreaking_uses, maxlevel=2},
 			    },
 			    damage_groups = {fleshy=4},
 		    },
@@ -94,12 +94,12 @@ if unbreaking_pick then
 
 	    minetest.register_tool("unbreaking:pick_mese", {
 		    description = S("Unbreakable Mese Pickaxe"),
-		    inventory_image = "default_tool_mesepick.png",
+		    inventory_image = "unbreaking_tool_mesepick.png",
 		    tool_capabilities = {
 			    full_punch_interval = 0.9,
 			    max_drop_level=3,
 			    groupcaps={
-				    cracky = {times={[1]=2.4, [2]=1.2, [3]=0.60}, uses=0, maxlevel=3},
+				    cracky = {times={[1]=2.4, [2]=1.2, [3]=0.60}, uses=unbreaking_uses, maxlevel=3},
 			    },
 			    damage_groups = {fleshy=5},
 		    },
@@ -109,12 +109,12 @@ if unbreaking_pick then
 
 	    minetest.register_tool("unbreaking:pick_diamond", {
 		    description = S("Unbreakable Diamond Pickaxe"),
-		    inventory_image = "default_tool_diamondpick.png",
+		    inventory_image = "unbreaking_tool_diamondpick.png",
 		    tool_capabilities = {
 			    full_punch_interval = 0.9,
 			    max_drop_level=3,
 			    groupcaps={
-				    cracky = {times={[1]=2.0, [2]=1.0, [3]=0.50}, uses=0, maxlevel=3},
+				    cracky = {times={[1]=2.0, [2]=1.0, [3]=0.50}, uses=unbreaking_uses, maxlevel=3},
 			    },
 			    damage_groups = {fleshy=5},
 		    },
@@ -127,7 +127,7 @@ if unbreaking_pick then
 	        description = S("Unbreakable Wooden Pickaxe"),
 	        _doc_items_longdesc = pickaxe_longdesc,
 	        _doc_items_hidden = false,
-	        inventory_image = "default_tool_woodpick.png",
+	        inventory_image = "unbreaking_tool_woodpick.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, pickaxe=1, dig_speed_class=2, enchantability=15 },
 	        tool_capabilities = {
@@ -135,19 +135,19 @@ if unbreaking_pick then
 		        full_punch_interval = 0.83333333,
 		        max_drop_level=1,
 		        damage_groups = {fleshy=2},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "group:wood",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        pickaxey = { speed = 2, level = 1, uses = 0 }
+		        pickaxey = { speed = 2, level = 1, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:pick_stone", {
 	        description = S("Unbreakable Stone Pickaxe"),
 	        _doc_items_longdesc = pickaxe_longdesc,
-	        inventory_image = "default_tool_stonepick.png",
+	        inventory_image = "unbreaking_tool_stonepick.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, pickaxe=1, dig_speed_class=3, enchantability=5 },
 	        tool_capabilities = {
@@ -155,19 +155,19 @@ if unbreaking_pick then
 		        full_punch_interval = 0.83333333,
 		        max_drop_level=3,
 		        damage_groups = {fleshy=3},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:cobble",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        pickaxey = { speed = 4, level = 3, uses = 0 }
+		        pickaxey = { speed = 4, level = 3, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:pick_iron", {
 	        description = S("Unbreakable Iron Pickaxe"),
 	        _doc_items_longdesc = pickaxe_longdesc,
-	        inventory_image = "default_tool_steelpick.png",
+	        inventory_image = "unbreaking_tool_steelpick.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, pickaxe=1, dig_speed_class=4, enchantability=14 },
 	        tool_capabilities = {
@@ -175,19 +175,19 @@ if unbreaking_pick then
 		        full_punch_interval = 0.83333333,
 		        max_drop_level=4,
 		        damage_groups = {fleshy=4},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:iron_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        pickaxey = { speed = 6, level = 4, uses = 0 }
+		        pickaxey = { speed = 6, level = 4, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:pick_gold", {
 	        description = S("Unbreakable Golden Pickaxe"),
 	        _doc_items_longdesc = pickaxe_longdesc,
-	        inventory_image = "default_tool_goldpick.png",
+	        inventory_image = "unbreaking_tool_goldpick.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, pickaxe=1, dig_speed_class=6, enchantability=22 },
 	        tool_capabilities = {
@@ -195,19 +195,19 @@ if unbreaking_pick then
 		        full_punch_interval = 0.83333333,
 		        max_drop_level=2,
 		        damage_groups = {fleshy=2},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:gold_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        pickaxey = { speed = 12, level = 2, uses = 0 }
+		        pickaxey = { speed = 12, level = 2, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:pick_diamond", {
 	        description = S("Unbreakable Diamond Pickaxe"),
 	        _doc_items_longdesc = pickaxe_longdesc,
-	        inventory_image = "default_tool_diamondpick.png",
+	        inventory_image = "unbreaking_tool_diamondpick.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, pickaxe=1, dig_speed_class=5, enchantability=10 },
 	        tool_capabilities = {
@@ -215,13 +215,13 @@ if unbreaking_pick then
 		        full_punch_interval = 0.83333333,
 		        max_drop_level=5,
 		        damage_groups = {fleshy=5},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:diamond",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        pickaxey = { speed = 8, level = 5, uses = 0 }
+		        pickaxey = { speed = 8, level = 5, uses=unbreaking_uses }
 	        },
         })
         minetest.log("action", "[unbreaking] MineClone2 Pickaxes now Unbreakable!")
@@ -273,13 +273,13 @@ if unbreaking_shovel then
     if mt_g then
 	    minetest.register_tool("unbreaking:shovel_wood", {
 		    description = S("Unbreakable Wooden Shovel"),
-		    inventory_image = "default_tool_woodshovel.png",
-		    wield_image = "default_tool_woodshovel.png^[transformR90",
+		    inventory_image = "unbreaking_tool_woodshovel.png",
+		    wield_image = "unbreaking_tool_woodshovel.png^[transformR90",
 		    tool_capabilities = {
 			    full_punch_interval = 1.2,
 			    max_drop_level=0,
 			    groupcaps={
-				    crumbly = {times={[1]=3.00, [2]=1.60, [3]=0.60}, uses=0, maxlevel=1},
+				    crumbly = {times={[1]=3.00, [2]=1.60, [3]=0.60}, uses=unbreaking_uses, maxlevel=1},
 			    },
 			    damage_groups = {fleshy=2},
 		    },
@@ -289,13 +289,13 @@ if unbreaking_shovel then
 
 	    minetest.register_tool("unbreaking:shovel_stone", {
 		    description = S("Unbreakable Stone Shovel"),
-		    inventory_image = "default_tool_stoneshovel.png",
-		    wield_image = "default_tool_stoneshovel.png^[transformR90",
+		    inventory_image = "unbreaking_tool_stoneshovel.png",
+		    wield_image = "unbreaking_tool_stoneshovel.png^[transformR90",
 		    tool_capabilities = {
 			    full_punch_interval = 1.4,
 			    max_drop_level=0,
 			    groupcaps={
-				    crumbly = {times={[1]=1.80, [2]=1.20, [3]=0.50}, uses=0, maxlevel=1},
+				    crumbly = {times={[1]=1.80, [2]=1.20, [3]=0.50}, uses=unbreaking_uses, maxlevel=1},
 			    },
 			    damage_groups = {fleshy=2},
 		    },
@@ -305,13 +305,13 @@ if unbreaking_shovel then
 
 	    minetest.register_tool("unbreaking:shovel_bronze", {
 		    description = S("Unbreakable Bronze Shovel"),
-		    inventory_image = "default_tool_bronzeshovel.png",
-		    wield_image = "default_tool_bronzeshovel.png^[transformR90",
+		    inventory_image = "unbreaking_tool_bronzeshovel.png",
+		    wield_image = "unbreaking_tool_bronzeshovel.png^[transformR90",
 		    tool_capabilities = {
 			    full_punch_interval = 1.1,
 			    max_drop_level=1,
 			    groupcaps={
-				    crumbly = {times={[1]=1.65, [2]=1.05, [3]=0.45}, uses=0, maxlevel=2},
+				    crumbly = {times={[1]=1.65, [2]=1.05, [3]=0.45}, uses=unbreaking_uses, maxlevel=2},
 			    },
 			    damage_groups = {fleshy=3},
 		    },
@@ -321,13 +321,13 @@ if unbreaking_shovel then
 
 	    minetest.register_tool("unbreaking:shovel_steel", {
 		    description = S("Unbreakable Steel Shovel"),
-		    inventory_image = "default_tool_steelshovel.png",
-		    wield_image = "default_tool_steelshovel.png^[transformR90",
+		    inventory_image = "unbreaking_tool_steelshovel.png",
+		    wield_image = "unbreaking_tool_steelshovel.png^[transformR90",
 		    tool_capabilities = {
 			    full_punch_interval = 1.1,
 			    max_drop_level=1,
 			    groupcaps={
-				    crumbly = {times={[1]=1.50, [2]=0.90, [3]=0.40}, uses=0, maxlevel=2},
+				    crumbly = {times={[1]=1.50, [2]=0.90, [3]=0.40}, uses=unbreaking_uses, maxlevel=2},
 			    },
 			    damage_groups = {fleshy=3},
 		    },
@@ -337,13 +337,13 @@ if unbreaking_shovel then
 
 	    minetest.register_tool("unbreaking:shovel_mese", {
 		    description = S("Unbreakable Mese Shovel"),
-		    inventory_image = "default_tool_meseshovel.png",
-		    wield_image = "default_tool_meseshovel.png^[transformR90",
+		    inventory_image = "unbreaking_tool_meseshovel.png",
+		    wield_image = "unbreaking_tool_meseshovel.png^[transformR90",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=3,
 			    groupcaps={
-				    crumbly = {times={[1]=1.20, [2]=0.60, [3]=0.30}, uses=0, maxlevel=3},
+				    crumbly = {times={[1]=1.20, [2]=0.60, [3]=0.30}, uses=unbreaking_uses, maxlevel=3},
 			    },
 			    damage_groups = {fleshy=4},
 		    },
@@ -353,13 +353,13 @@ if unbreaking_shovel then
 
 	    minetest.register_tool("unbreaking:shovel_diamond", {
 		    description = S("Unbreakable Diamond Shovel"),
-		    inventory_image = "default_tool_diamondshovel.png",
-		    wield_image = "default_tool_diamondshovel.png^[transformR90",
+		    inventory_image = "unbreaking_tool_diamondshovel.png",
+		    wield_image = "unbreaking_tool_diamondshovel.png^[transformR90",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=1,
 			    groupcaps={
-				    crumbly = {times={[1]=1.10, [2]=0.50, [3]=0.30}, uses=0, maxlevel=3},
+				    crumbly = {times={[1]=1.10, [2]=0.50, [3]=0.30}, uses=unbreaking_uses, maxlevel=3},
 			    },
 			    damage_groups = {fleshy=4},
 		    },
@@ -373,105 +373,105 @@ if unbreaking_shovel then
 	        _doc_items_longdesc = shovel_longdesc,
 	        _doc_items_usagehelp = shovel_use,
 	        _doc_items_hidden = false,
-	        inventory_image = "default_tool_woodshovel.png",
+	        inventory_image = "unbreaking_tool_woodshovel.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, shovel=1, dig_speed_class=2, enchantability=15 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        max_drop_level=1,
 		        damage_groups = {fleshy=2},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_grass_path,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "group:wood",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        shovely = { speed = 2, level = 1, uses = 0 }
+		        shovely = { speed = 2, level = 1, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:shovel_stone", {
 	        description = S("Unbreakable Stone Shovel"),
 	        _doc_items_longdesc = shovel_longdesc,
 	        _doc_items_usagehelp = shovel_use,
-	        inventory_image = "default_tool_stoneshovel.png",
+	        inventory_image = "unbreaking_tool_stoneshovel.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, shovel=1, dig_speed_class=3, enchantability=5 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        max_drop_level=3,
 		        damage_groups = {fleshy=3},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_grass_path,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:cobble",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        shovely = { speed = 4, level = 3, uses = 0 }
+		        shovely = { speed = 4, level = 3, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:shovel_iron", {
 	        description = S("Unbreakable Iron Shovel"),
 	        _doc_items_longdesc = shovel_longdesc,
 	        _doc_items_usagehelp = shovel_use,
-	        inventory_image = "default_tool_steelshovel.png",
+	        inventory_image = "unbreaking_tool_steelshovel.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, shovel=1, dig_speed_class=4, enchantability=14 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        max_drop_level=4,
 		        damage_groups = {fleshy=4},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_grass_path,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:iron_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        shovely = { speed = 6, level = 4, uses = 0 }
+		        shovely = { speed = 6, level = 4, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:shovel_gold", {
 	        description = S("Unbreakable Golden Shovel"),
 	        _doc_items_longdesc = shovel_longdesc,
 	        _doc_items_usagehelp = shovel_use,
-	        inventory_image = "default_tool_goldshovel.png",
+	        inventory_image = "unbreaking_tool_goldshovel.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, shovel=1, dig_speed_class=6, enchantability=22 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        max_drop_level=2,
 		        damage_groups = {fleshy=2},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_grass_path,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:gold_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        shovely = { speed = 12, level = 2, uses = 0 }
+		        shovely = { speed = 12, level = 2, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:shovel_diamond", {
 	        description = S("Unbreakable Diamond Shovel"),
 	        _doc_items_longdesc = shovel_longdesc,
 	        _doc_items_usagehelp = shovel_use,
-	        inventory_image = "default_tool_diamondshovel.png",
+	        inventory_image = "unbreaking_tool_diamondshovel.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, shovel=1, dig_speed_class=5, enchantability=10 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        max_drop_level=5,
 		        damage_groups = {fleshy=5},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_grass_path,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:diamond",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        shovely = { speed = 8, level = 5, uses = 0 }
+		        shovely = { speed = 8, level = 5, uses=unbreaking_uses }
 	        },
         })
         minetest.log("action", "[unbreaking] MineClone2 Shovels now Unbreakable!")
@@ -516,12 +516,12 @@ if unbreaking_axe then
     if mt_g then
 	    minetest.register_tool("unbreaking:axe_wood", {
 		    description = S("Unbreakable Wooden Axe"),
-		    inventory_image = "default_tool_woodaxe.png",
+		    inventory_image = "unbreaking_tool_woodaxe.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=0,
 			    groupcaps={
-				    choppy = {times={[2]=3.00, [3]=1.60}, uses=0, maxlevel=1},
+				    choppy = {times={[2]=3.00, [3]=1.60}, uses=unbreaking_uses, maxlevel=1},
 			    },
 			    damage_groups = {fleshy=2},
 		    },
@@ -531,12 +531,12 @@ if unbreaking_axe then
 
 	    minetest.register_tool("unbreaking:axe_stone", {
 		    description = S("Unbreakable Stone Axe"),
-		    inventory_image = "default_tool_stoneaxe.png",
+		    inventory_image = "unbreaking_tool_stoneaxe.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.2,
 			    max_drop_level=0,
 			    groupcaps={
-				    choppy={times={[1]=3.00, [2]=2.00, [3]=1.30}, uses=0, maxlevel=1},
+				    choppy={times={[1]=3.00, [2]=2.00, [3]=1.30}, uses=unbreaking_uses, maxlevel=1},
 			    },
 			    damage_groups = {fleshy=3},
 		    },
@@ -546,12 +546,12 @@ if unbreaking_axe then
 
 	    minetest.register_tool("unbreaking:axe_bronze", {
 		    description = S("Unbreakable Bronze Axe"),
-		    inventory_image = "default_tool_bronzeaxe.png",
+		    inventory_image = "unbreaking_tool_bronzeaxe.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=1,
 			    groupcaps={
-				    choppy={times={[1]=2.75, [2]=1.70, [3]=1.15}, uses=0, maxlevel=2},
+				    choppy={times={[1]=2.75, [2]=1.70, [3]=1.15}, uses=unbreaking_uses, maxlevel=2},
 			    },
 			    damage_groups = {fleshy=4},
 		    },
@@ -561,12 +561,12 @@ if unbreaking_axe then
 
 	    minetest.register_tool("unbreaking:axe_steel", {
 		    description = S("Unbreakable Steel Axe"),
-		    inventory_image = "default_tool_steelaxe.png",
+		    inventory_image = "unbreaking_tool_steelaxe.png",
 		    tool_capabilities = {
 			    full_punch_interval = 1.0,
 			    max_drop_level=1,
 			    groupcaps={
-				    choppy={times={[1]=2.50, [2]=1.40, [3]=1.00}, uses=0, maxlevel=2},
+				    choppy={times={[1]=2.50, [2]=1.40, [3]=1.00}, uses=unbreaking_uses, maxlevel=2},
 			    },
 			    damage_groups = {fleshy=4},
 		    },
@@ -576,12 +576,12 @@ if unbreaking_axe then
 
 	    minetest.register_tool("unbreaking:axe_mese", {
 		    description = S("Unbreakable Mese Axe"),
-		    inventory_image = "default_tool_meseaxe.png",
+		    inventory_image = "unbreaking_tool_meseaxe.png",
 		    tool_capabilities = {
 			    full_punch_interval = 0.9,
 			    max_drop_level=1,
 			    groupcaps={
-				    choppy={times={[1]=2.20, [2]=1.00, [3]=0.60}, uses=0, maxlevel=3},
+				    choppy={times={[1]=2.20, [2]=1.00, [3]=0.60}, uses=unbreaking_uses, maxlevel=3},
 			    },
 			    damage_groups = {fleshy=6},
 		    },
@@ -591,12 +591,12 @@ if unbreaking_axe then
 
 	    minetest.register_tool("unbreaking:axe_diamond", {
 		    description = S("Unbreakable Diamond Axe"),
-		    inventory_image = "default_tool_diamondaxe.png",
+		    inventory_image = "unbreaking_tool_diamondaxe.png",
 		    tool_capabilities = {
 			    full_punch_interval = 0.9,
 			    max_drop_level=1,
 			    groupcaps={
-				    choppy={times={[1]=2.10, [2]=0.90, [3]=0.50}, uses=0, maxlevel=3},
+				    choppy={times={[1]=2.10, [2]=0.90, [3]=0.50}, uses=unbreaking_uses, maxlevel=3},
 			    },
 			    damage_groups = {fleshy=7},
 		    },
@@ -609,47 +609,47 @@ if unbreaking_axe then
 	        description = S("Unbreakable Wooden Axe"),
 	        _doc_items_longdesc = axe_longdesc,
 	        _doc_items_hidden = false,
-	        inventory_image = "default_tool_woodaxe.png",
+	        inventory_image = "unbreaking_tool_woodaxe.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, axe=1, dig_speed_class=2, enchantability=15 },
 	        tool_capabilities = {
 		        full_punch_interval = 1.25,
 		        max_drop_level=1,
 		        damage_groups = {fleshy=7},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_stripped_trunk,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "group:wood",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        axey = { speed = 2, level = 1, uses = 0 }
+		        axey = { speed = 2, level = 1, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:axe_stone", {
 	        description = S("Unbreakable Stone Axe"),
 	        _doc_items_longdesc = axe_longdesc,
-	        inventory_image = "default_tool_stoneaxe.png",
+	        inventory_image = "unbreaking_tool_stoneaxe.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, axe=1, dig_speed_class=3, enchantability=5 },
 	        tool_capabilities = {
 		        full_punch_interval = 1.25,
 		        max_drop_level=3,
 		        damage_groups = {fleshy=9},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_stripped_trunk,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:cobble",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        axey = { speed = 4, level = 3, uses = 0 }
+		        axey = { speed = 4, level = 3, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:axe_iron", {
 	        description = S("Unbreakable Iron Axe"),
 	        _doc_items_longdesc = axe_longdesc,
-	        inventory_image = "default_tool_steelaxe.png",
+	        inventory_image = "unbreaking_tool_steelaxe.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, axe=1, dig_speed_class=4, enchantability=14 },
 	        tool_capabilities = {
@@ -657,54 +657,54 @@ if unbreaking_axe then
 		        full_punch_interval = 1.11111111,
 		        max_drop_level=4,
 		        damage_groups = {fleshy=9},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_stripped_trunk,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:iron_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        axey = { speed = 6, level = 4, uses = 0 }
+		        axey = { speed = 6, level = 4, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:axe_gold", {
 	        description = S("Unbreakable Golden Axe"),
 	        _doc_items_longdesc = axe_longdesc,
-	        inventory_image = "default_tool_goldaxe.png",
+	        inventory_image = "unbreaking_tool_goldaxe.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, axe=1, dig_speed_class=6, enchantability=22 },
 	        tool_capabilities = {
 		        full_punch_interval = 1.0,
 		        max_drop_level=2,
 		        damage_groups = {fleshy=7},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_stripped_trunk,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:gold_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        axey = { speed = 12, level = 2, uses = 0 }
+		        axey = { speed = 12, level = 2, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:axe_diamond", {
 	        description = S("Unbreakable Diamond Axe"),
 	        _doc_items_longdesc = axe_longdesc,
-	        inventory_image = "default_tool_diamondaxe.png",
+	        inventory_image = "unbreaking_tool_diamondaxe.png",
 	        wield_scale = wield_scale,
 	        groups = { tool=1, axe=1, dig_speed_class=5, enchantability=10 },
 	        tool_capabilities = {
 		        full_punch_interval = 1.0,
 		        max_drop_level=5,
 		        damage_groups = {fleshy=9},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        on_place = make_stripped_trunk,
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:diamond",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        axey = { speed = 8, level = 5, uses = 0 }
+		        axey = { speed = 8, level = 5, uses=unbreaking_uses }
 	        },
         })
         minetest.log("action", "[unbreaking] MineClone2 Axes now Unbreakable!")
@@ -718,12 +718,12 @@ if unbreaking_sword then
     if mt_g then
         minetest.register_tool("unbreaking:sword_wood", {
             description = S("Unbreakable Wooden Sword"),
-            inventory_image = "default_tool_woodsword.png",
+            inventory_image = "unbreaking_tool_woodsword.png",
             tool_capabilities = {
                 full_punch_interval = 1,
                 max_drop_level=0,
                 groupcaps={
-                    snappy={times={[2]=1.6, [3]=0.40}, uses=0, maxlevel=1},
+                    snappy={times={[2]=1.6, [3]=0.40}, uses=unbreaking_uses, maxlevel=1},
                 },
                 damage_groups = {fleshy=2},
             },
@@ -733,12 +733,12 @@ if unbreaking_sword then
 
         minetest.register_tool("unbreaking:sword_stone", {
             description = S("Unbreakable Stone Sword"),
-            inventory_image = "default_tool_stonesword.png",
+            inventory_image = "unbreaking_tool_stonesword.png",
             tool_capabilities = {
                 full_punch_interval = 1.2,
                 max_drop_level=0,
                 groupcaps={
-                    snappy={times={[2]=1.4, [3]=0.40}, uses=0, maxlevel=1},
+                    snappy={times={[2]=1.4, [3]=0.40}, uses=unbreaking_uses, maxlevel=1},
                 },
                 damage_groups = {fleshy=4},
             },
@@ -748,12 +748,12 @@ if unbreaking_sword then
 
         minetest.register_tool("unbreaking:sword_bronze", {
             description = S("Unbreakable Bronze Sword"),
-            inventory_image = "default_tool_bronzesword.png",
+            inventory_image = "unbreaking_tool_bronzesword.png",
             tool_capabilities = {
                 full_punch_interval = 0.8,
                 max_drop_level=1,
                 groupcaps={
-                    snappy={times={[1]=2.75, [2]=1.30, [3]=0.375}, uses=0, maxlevel=2},
+                    snappy={times={[1]=2.75, [2]=1.30, [3]=0.375}, uses=unbreaking_uses, maxlevel=2},
                 },
                 damage_groups = {fleshy=6},
             },
@@ -763,12 +763,12 @@ if unbreaking_sword then
 
         minetest.register_tool("unbreaking:sword_steel", {
             description = S("Unbreakable Steel Sword"),
-            inventory_image = "default_tool_steelsword.png",
+            inventory_image = "unbreaking_tool_steelsword.png",
             tool_capabilities = {
                 full_punch_interval = 0.8,
                 max_drop_level=1,
                 groupcaps={
-                    snappy={times={[1]=2.5, [2]=1.20, [3]=0.35}, uses=0, maxlevel=2},
+                    snappy={times={[1]=2.5, [2]=1.20, [3]=0.35}, uses=unbreaking_uses, maxlevel=2},
                 },
                 damage_groups = {fleshy=6},
             },
@@ -778,12 +778,12 @@ if unbreaking_sword then
 
         minetest.register_tool("unbreaking:sword_mese", {
             description = S("Unbreakable Mese Sword"),
-            inventory_image = "default_tool_mesesword.png",
+            inventory_image = "unbreaking_tool_mesesword.png",
             tool_capabilities = {
                 full_punch_interval = 0.7,
                 max_drop_level=1,
                 groupcaps={
-                    snappy={times={[1]=2.0, [2]=1.00, [3]=0.35}, uses=0, maxlevel=3},
+                    snappy={times={[1]=2.0, [2]=1.00, [3]=0.35}, uses=unbreaking_uses, maxlevel=3},
                 },
                 damage_groups = {fleshy=7},
             },
@@ -793,12 +793,12 @@ if unbreaking_sword then
 
         minetest.register_tool("unbreaking:sword_diamond", {
             description = S("Unbreakable Diamond Sword"),
-            inventory_image = "default_tool_diamondsword.png",
+            inventory_image = "unbreaking_tool_diamondsword.png",
             tool_capabilities = {
                 full_punch_interval = 0.7,
                 max_drop_level=1,
                 groupcaps={
-                    snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses=0, maxlevel=3},
+                    snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses=unbreaking_uses, maxlevel=3},
                 },
                 damage_groups = {fleshy=8},
             },
@@ -811,101 +811,101 @@ if unbreaking_sword then
 	        description = S("Unbreakable Wooden Sword"),
 	        _doc_items_longdesc = sword_longdesc,
 	        _doc_items_hidden = false,
-	        inventory_image = "default_tool_woodsword.png",
+	        inventory_image = "unbreaking_tool_woodsword.png",
 	        wield_scale = wield_scale,
 	        groups = { weapon=1, sword=1, dig_speed_class=2, enchantability=15 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.625,
 		        max_drop_level=1,
 		        damage_groups = {fleshy=4},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "group:wood",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        swordy = { speed = 2, level = 1, uses = 0 },
-		        swordy_cobweb = { speed = 2, level = 1, uses = 0 }
+		        swordy = { speed = 2, level = 1, uses=unbreaking_uses },
+		        swordy_cobweb = { speed = 2, level = 1, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:sword_stone", {
 	        description = S("Unbreakable Stone Sword"),
 	        _doc_items_longdesc = sword_longdesc,
-	        inventory_image = "default_tool_stonesword.png",
+	        inventory_image = "unbreaking_tool_stonesword.png",
 	        wield_scale = wield_scale,
 	        groups = { weapon=1, sword=1, dig_speed_class=3, enchantability=5 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.625,
 		        max_drop_level=3,
 		        damage_groups = {fleshy=5},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:cobble",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        swordy = { speed = 4, level = 3, uses = 0 },
-		        swordy_cobweb = { speed = 4, level = 3, uses = 0 }
+		        swordy = { speed = 4, level = 3, uses=unbreaking_uses },
+		        swordy_cobweb = { speed = 4, level = 3, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:sword_iron", {
 	        description = S("Unbreakable Iron Sword"),
 	        _doc_items_longdesc = sword_longdesc,
-	        inventory_image = "default_tool_steelsword.png",
+	        inventory_image = "unbreaking_tool_steelsword.png",
 	        wield_scale = wield_scale,
 	        groups = { weapon=1, sword=1, dig_speed_class=4, enchantability=14 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.625,
 		        max_drop_level=4,
 		        damage_groups = {fleshy=6},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:iron_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        swordy = { speed = 6, level = 4, uses = 0 },
-		        swordy_cobweb = { speed = 6, level = 4, uses = 0 }
+		        swordy = { speed = 6, level = 4, uses=unbreaking_uses },
+		        swordy_cobweb = { speed = 6, level = 4, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:sword_gold", {
 	        description = S("Unbreakable Golden Sword"),
 	        _doc_items_longdesc = sword_longdesc,
-	        inventory_image = "default_tool_goldsword.png",
+	        inventory_image = "unbreaking_tool_goldsword.png",
 	        wield_scale = wield_scale,
 	        groups = { weapon=1, sword=1, dig_speed_class=6, enchantability=22 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.625,
 		        max_drop_level=2,
 		        damage_groups = {fleshy=4},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:gold_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        swordy = { speed = 12, level = 2, uses = 0 },
-		        swordy_cobweb = { speed = 12, level = 2, uses = 0 }
+		        swordy = { speed = 12, level = 2, uses=unbreaking_uses },
+		        swordy_cobweb = { speed = 12, level = 2, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:sword_diamond", {
 	        description = S("Unbreakable Diamond Sword"),
 	        _doc_items_longdesc = sword_longdesc,
-	        inventory_image = "default_tool_diamondsword.png",
+	        inventory_image = "unbreaking_tool_diamondsword.png",
 	        wield_scale = wield_scale,
 	        groups = { weapon=1, sword=1, dig_speed_class=5, enchantability=10 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.625,
 		        max_drop_level=5,
 		        damage_groups = {fleshy=7},
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        sound = { breaks = "default_tool_breaks" },
 	        --_repair_material = "mcl_core:diamond",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        swordy = { speed = 8, level = 5, uses = 0 },
-		        swordy_cobweb = { speed = 8, level = 5, uses = 0 }
+		        swordy = { speed = 8, level = 5, uses=unbreaking_uses },
+		        swordy_cobweb = { speed = 8, level = 5, uses=unbreaking_uses }
 	        },
         })
         minetest.log("action", "[unbreaking] MineClone2 Swords now Unbreakable!")
@@ -1079,22 +1079,22 @@ if unbreaking_hoe then
     if mt_g then
 	    register_hoe2(":unbreaking:hoe_wood", {
 		    description = S("Unbreakable Wooden Hoe"),
-		    inventory_image = "farming_tool_woodhoe.png",
-		    max_uses = 0,
+		    inventory_image = "unbreaking_tool_woodhoe.png",
+		    max_uses=unbreaking_uses,
 		    material = "group:wood",
 		    groups = {hoe = 1, flammable = 2},
 	    })
 	    register_hoe2(":unbreaking:hoe_stone", {
 		    description = S("Unbreakable Stone Hoe"),
-		    inventory_image = "farming_tool_stonehoe.png",
-		    max_uses = 0,
+		    inventory_image = "unbreaking_tool_stonehoe.png",
+		    max_uses=unbreaking_uses,
 		    material = "group:stone",
 		    groups = {hoe = 1}
 	    })
 	    register_hoe2(":unbreaking:hoe_steel", {
 		    description = S("Unbreakable Steel Hoe"),
-		    inventory_image = "farming_tool_steelhoe.png",
-		    max_uses = 0,
+		    inventory_image = "unbreaking_tool_steelhoe.png",
+		    max_uses=unbreaking_uses,
 		    material = "default:steel_ingot",
 		    groups = {hoe = 1}
 	    })
@@ -1106,19 +1106,19 @@ if unbreaking_hoe then
 	        _doc_items_longdesc = hoe_longdesc,
 	        _doc_items_usagehelp = hoe_usagehelp,
 	        _doc_items_hidden = false,
-	        inventory_image = "farming_tool_woodhoe.png",
+	        inventory_image = "unbreaking_tool_woodhoe.png",
 	        wield_scale = wield_scale,
 	        on_place = hoe_on_place_function2(0),
 	        groups = { tool=1, hoe=1, enchantability=15 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        damage_groups = { fleshy = 1, },
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        --_repair_material = "group:wood",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        hoey = { speed = 2, level = 1, uses = 0 }
+		        hoey = { speed = 2, level = 1, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:hoe_stone", {
@@ -1126,19 +1126,19 @@ if unbreaking_hoe then
 	        _tt_help = hoe_tt.."\n"..S("Uses: Infinite"),
 	        _doc_items_longdesc = hoe_longdesc,
 	        _doc_items_usagehelp = hoe_usagehelp,
-	        inventory_image = "farming_tool_stonehoe.png",
+	        inventory_image = "unbreaking_tool_stonehoe.png",
 	        wield_scale = wield_scale,
 	        on_place = hoe_on_place_function2(0),
 	        groups = { tool=1, hoe=1, enchantability=5 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.5,
 		        damage_groups = { fleshy = 1, },
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        _repair_material = "mcl_core:cobble",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        hoey = { speed = 4, level = 3, uses = 0 }
+		        hoey = { speed = 4, level = 3, uses=unbreaking_uses }
 	        },
         })
         minetest.register_tool("unbreaking:hoe_iron", {
@@ -1146,7 +1146,7 @@ if unbreaking_hoe then
 	        _tt_help = hoe_tt.."\n"..S("Uses: Infinite"),
 	        _doc_items_longdesc = hoe_longdesc,
 	        _doc_items_usagehelp = hoe_usagehelp,
-	        inventory_image = "farming_tool_steelhoe.png",
+	        inventory_image = "unbreaking_tool_steelhoe.png",
 	        wield_scale = wield_scale,
 	        on_place = hoe_on_place_function2(0),
 	        groups = { tool=1, hoe=1, enchantability=14 },
@@ -1154,12 +1154,12 @@ if unbreaking_hoe then
 		        -- 1/3
 		        full_punch_interval = 0.33333333,
 		        damage_groups = { fleshy = 1, },
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        _repair_material = "mcl_core:iron_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        hoey = { speed = 6, level = 4, uses = 0 }
+		        hoey = { speed = 6, level = 4, uses=unbreaking_uses }
 	        },
         })
         minetest.register_craft({
@@ -1173,19 +1173,19 @@ if unbreaking_hoe then
 	        _tt_help = hoe_tt.."\n"..S("Uses: Infinite"),
 	        _doc_items_longdesc = hoe_longdesc,
 	        _doc_items_usagehelp = hoe_usagehelp,
-	        inventory_image = "farming_tool_goldhoe.png",
+	        inventory_image = "unbreaking_tool_goldhoe.png",
 	        wield_scale = wield_scale,
 	        on_place = hoe_on_place_function2(0),
 	        groups = { tool=1, hoe=1, enchantability=22 },
 	        tool_capabilities = {
 		        full_punch_interval = 1,
 		        damage_groups = { fleshy = 1, },
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        _repair_material = "mcl_core:gold_ingot",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        hoey = { speed = 12, level = 2, uses = 0 }
+		        hoey = { speed = 12, level = 2, uses=unbreaking_uses }
 	        },
         })
         minetest.register_craft({
@@ -1199,19 +1199,19 @@ if unbreaking_hoe then
 	        _tt_help = hoe_tt.."\n"..S("Uses: Infinite"),
 	        _doc_items_longdesc = hoe_longdesc,
 	        _doc_items_usagehelp = hoe_usagehelp,
-	        inventory_image = "farming_tool_diamondhoe.png",
+	        inventory_image = "unbreaking_tool_diamondhoe.png",
 	        wield_scale = wield_scale,
 	        on_place = hoe_on_place_function2(0),
 	        groups = { tool=1, hoe=1, enchantability=10 },
 	        tool_capabilities = {
 		        full_punch_interval = 0.25,
 		        damage_groups = { fleshy = 1, },
-		        punch_attack_uses = 0,
+		        punch_attack_uses=unbreaking_uses,
 	        },
 	        _repair_material = "mcl_core:diamond",
 	        _mcl_toollike_wield = true,
 	        _mcl_diggroups = {
-		        hoey = { speed = 8, level = 5, uses = 0 }
+		        hoey = { speed = 8, level = 5, uses=unbreaking_uses }
 	        },
         })
         minetest.log("action", "[unbreaking] MineClone2 Hoes now Unbreakable!")
@@ -1252,8 +1252,8 @@ if unbreaking_shears and mcl2 then
 	    description = S("Unbreakable Shears"),
 	    _doc_items_longdesc = shears_longdesc,
 	    _doc_items_usagehelp = shears_use,
-	    inventory_image = "default_tool_shears.png",
-	    wield_image = "default_tool_shears.png",
+	    inventory_image = "unbreaking_tool_shears.png",
+	    wield_image = "unbreaking_tool_shears.png",
 	    stack_max = 1,
 	    groups = { tool=1, shears=1, dig_speed_class=4, },
 	    tool_capabilities = {
@@ -1264,9 +1264,9 @@ if unbreaking_shears and mcl2 then
 	    sound = { breaks = "default_tool_breaks" },
 	    _mcl_toollike_wield = true,
 	    _mcl_diggroups = {
-		    shearsy = { speed = 1.5, level = 1, uses = 0 },
-		    shearsy_wool = { speed = 5, level = 1, uses = 0 },
-		    shearsy_cobweb = { speed = 15, level = 1, uses = 0 }
+		    shearsy = { speed = 1.5, level = 1, uses=unbreaking_uses },
+		    shearsy_wool = { speed = 5, level = 1, uses=unbreaking_uses },
+		    shearsy_cobweb = { speed = 15, level = 1, uses=unbreaking_uses }
 	    },
     })
     minetest.register_craft({
