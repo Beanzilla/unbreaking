@@ -56,7 +56,7 @@ if mcl2 then
 			    description = S(def.description .. " " .. (descriptions[name] or element.description)),
 			    _doc_items_longdesc = mcl_armor2.longdesc,
 			    _doc_items_usagehelp = mcl_armor2.usage,
-			    inventory_image = "mcl_armor_inv_" .. itemname .. ".png",
+			    inventory_image = "unbreaking_inv_" .. itemname .. ".png",
 			    --_repair_material = def.repair_material or def.craft_material,
 			    groups = groups,
 			    sounds = {
@@ -69,8 +69,8 @@ if mcl2 then
 			    _on_unequip = on_unequip_callbacks[name] or def.on_unequip,
 			    _on_break = on_break_callbacks[name] or def.on_break,
 			    _mcl_armor_element = name,
-			    _mcl_armor_texture = textures[name] or "mcl_armor" .. "_" .. itemname .. ".png",
-			    _mcl_armor_preview = previews[name] or "mcl_armor" .. "_" .. itemname .. "_preview.png",
+			    _mcl_armor_texture = textures[name] or "unbreaking" .. "_" .. itemname .. ".png",
+			    _mcl_armor_preview = previews[name] or "unbreaking" .. "_" .. itemname .. "_preview.png",
 		    })
 
 		    if def.craft_material then
@@ -98,73 +98,77 @@ end
 
 if mt_g then
     --local armor = armor:armor or error("[unbreaking] Failed to obtain API from 3d_armor!")
+    local armor_modpath = minetest.get_modpath("3d_armor") or nil
+    if armor_modpath == nil then
+        error("[unbreaking] I need 3d_armor or MineClone2 to support armor!")
+    end
     -- Wood
-    if armor.config.material_wood then
+    if armor.materials.wood then
         armor:register_armor(":unbreaking:helmet_wood", {
 	        description = S("Unbreakable Wood Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_wood.png",
+	        inventory_image = "unbreaking_inv_helmet_wood.png",
 	        groups = {armor_head=1, armor_heal=0, armor_use=unbreaking_uses, flammable=1},
 	        armor_groups = {fleshy=5},
 	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
         })
         armor:register_armor(":unbreaking:chestplate_wood", {
 	        description = S("Unbreakable Wood Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_wood.png",
+	        inventory_image = "unbreaking_inv_chestplate_wood.png",
 	        groups = {armor_torso=1, armor_heal=0, armor_use=unbreaking_uses, flammable=1},
 	        armor_groups = {fleshy=10},
 	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
         })
         armor:register_armor(":unbreaking:leggings_wood", {
 	        description = S("Unbreakable Wood Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_wood.png",
+	        inventory_image = "unbreaking_inv_leggings_wood.png",
 	        groups = {armor_legs=1, armor_heal=0, armor_use=unbreaking_uses, flammable=1},
 	        armor_groups = {fleshy=10},
 	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
         })
         armor:register_armor(":unbreaking:boots_wood", {
 	        description = S("Unbreakable Wood Boots"),
-	        inventory_image = "3d_armor_inv_boots_wood.png",
+	        inventory_image = "unbreaking_inv_boots_wood.png",
 	        armor_groups = {fleshy=5},
 	        damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
 	        groups = {armor_feet=1, armor_heal=0, armor_use=unbreaking_uses, flammable=1},
         })
     end
     -- Cactus
-    if armor.config.material_cactus then
+    if armor.materials.cactus then
         armor:register_armor(":unbreaking:helmet_cactus", {
             description = S("Unbreakable Cactus Helmet"),
-            inventory_image = "3d_armor_inv_helmet_cactus.png",
+            inventory_image = "unbreaking_inv_helmet_cactus.png",
             groups = {armor_head=1, armor_heal=0, armor_use=unbreaking_uses},
             armor_groups = {fleshy=5},
             damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
         })
         armor:register_armor(":unbreaking:chestplate_cactus", {
             description = S("Unbreakable Cactus Chestplate"),
-            inventory_image = "3d_armor_inv_chestplate_cactus.png",
+            inventory_image = "unbreaking_inv_chestplate_cactus.png",
             groups = {armor_torso=1, armor_heal=0, armor_use=unbreaking_uses},
             armor_groups = {fleshy=10},
             damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
         })
         armor:register_armor(":unbreakable:leggings_cactus", {
             description = S("Unbreakable Cactus Leggings"),
-            inventory_image = "3d_armor_inv_leggings_cactus.png",
+            inventory_image = "unbreaking_inv_leggings_cactus.png",
             groups = {armor_legs=1, armor_heal=0, armor_use=unbreaking_uses},
             armor_groups = {fleshy=10},
             damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
         })
         armor:register_armor(":unbreakable:boots_cactus", {
             description = S("Unbreakable Cactus Boots"),
-            inventory_image = "3d_armor_inv_boots_cactus.png",
+            inventory_image = "unbreaking_inv_boots_cactus.png",
             groups = {armor_feet=1, armor_heal=0, armor_use=unbreaking_uses},
             armor_groups = {fleshy=5},
             damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
         })
     end
     -- Steel
-    if armor.config.material_steel then
+    if armor.materials.steel then
         armor:register_armor(":unbreaking:helmet_steel", {
 	        description = S("Unbreakable Steel Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_steel.png",
+	        inventory_image = "unbreaking_inv_helmet_steel.png",
 	        groups = {armor_head=1, armor_heal=0, armor_use=unbreaking_uses,
 		        physics_speed=-0.01, physics_gravity=0.01},
 	        armor_groups = {fleshy=10},
@@ -172,7 +176,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:chestplate_steel", {
 	        description = S("Unbreakable Steel Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_steel.png",
+	        inventory_image = "unbreaking_inv_chestplate_steel.png",
 	        groups = {armor_torso=1, armor_heal=0, armor_use=unbreaking_uses,
 		        physics_speed=-0.04, physics_gravity=0.04},
 	        armor_groups = {fleshy=15},
@@ -180,7 +184,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:leggings_steel", {
 	        description = S("Unbreakable Steel Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_steel.png",
+	        inventory_image = "unbreaking_inv_leggings_steel.png",
 	        groups = {armor_legs=1, armor_heal=0, armor_use=unbreaking_uses,
 		        physics_speed=-0.03, physics_gravity=0.03},
 	        armor_groups = {fleshy=15},
@@ -188,7 +192,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:boots_steel", {
 	        description = S("Unbreakable Steel Boots"),
-	        inventory_image = "3d_armor_inv_boots_steel.png",
+	        inventory_image = "unbreaking_inv_boots_steel.png",
 	        groups = {armor_feet=1, armor_heal=0, armor_use=unbreaking_uses,
 		        physics_speed=-0.01, physics_gravity=0.01},
 	        armor_groups = {fleshy=10},
@@ -196,10 +200,10 @@ if mt_g then
         })
     end
     -- Bronze
-    if armor.config.material_bronze then
+    if armor.materials.bronze then
     	armor:register_armor(":unbreaking:helmet_bronze", {
 	        description = S("Unbreakable Bronze Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_bronze.png",
+	        inventory_image = "unbreaking_inv_helmet_bronze.png",
 	        groups = {armor_head=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.01, physics_gravity=0.01},
 	        armor_groups = {fleshy=10},
@@ -207,7 +211,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:chestplate_bronze", {
 	        description = S("Unbreakable Bronze Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_bronze.png",
+	        inventory_image = "unbreaking_inv_chestplate_bronze.png",
 	        groups = {armor_torso=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.04, physics_gravity=0.04},
 	        armor_groups = {fleshy=15},
@@ -215,7 +219,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:leggings_bronze", {
 	        description = S("Unbreakable Bronze Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_bronze.png",
+	        inventory_image = "unbreaking_inv_leggings_bronze.png",
 	        groups = {armor_legs=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.03, physics_gravity=0.03},
 	        armor_groups = {fleshy=15},
@@ -223,7 +227,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:boots_bronze", {
 	        description = S("Unbreakable Bronze Boots"),
-	        inventory_image = "3d_armor_inv_boots_bronze.png",
+	        inventory_image = "unbreaking_inv_boots_bronze.png",
 	        groups = {armor_feet=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.01, physics_gravity=0.01},
 	        armor_groups = {fleshy=10},
@@ -231,41 +235,41 @@ if mt_g then
         })
     end
     -- Diamond
-    if armor.config.material_diamond then
+    if armor.materials.diamond then
         armor:register_armor(":unbreaking:helmet_diamond", {
 	        description = S("Unbreakable Diamond Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_diamond.png",
+	        inventory_image = "unbreaking_inv_helmet_diamond.png",
 	        groups = {armor_head=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=15},
 	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
         })
         armor:register_armor(":unbreaking:chestplate_diamond", {
 	        description = S("Unbreakable Diamond Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_diamond.png",
+	        inventory_image = "unbreaking_inv_chestplate_diamond.png",
 	        groups = {armor_torso=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=20},
 	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
         })
         armor:register_armor(":unbreaking:leggings_diamond", {
 	        description = S("Unbreakable Diamond Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_diamond.png",
+	        inventory_image = "unbreaking_inv_leggings_diamond.png",
 	        groups = {armor_legs=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=20},
 	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
         })
         armor:register_armor(":unbreaking:boots_diamond", {
 	        description = S("Unbreakable Diamond Boots"),
-	        inventory_image = "3d_armor_inv_boots_diamond.png",
+	        inventory_image = "unbreaking_inv_boots_diamond.png",
 	        groups = {armor_feet=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=15},
 	        damage_groups = {cracky=2, snappy=1, choppy=1, level=3},
         })
     end
     -- Gold
-    if armor.config.material_gold then
+    if armor.materials.gold then
         armor:register_armor(":unbreaking:helmet_gold", {
 	        description = S("Unbreakable Gold Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_gold.png",
+	        inventory_image = "unbreaking_inv_helmet_gold.png",
 	        groups = {armor_head=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.02, physics_gravity=0.02},
 	        armor_groups = {fleshy=10},
@@ -273,7 +277,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:chestplate_gold", {
 	        description = S("Unbreakable Gold Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_gold.png",
+	        inventory_image = "unbreaking_inv_chestplate_gold.png",
 	        groups = {armor_torso=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.05, physics_gravity=0.05},
 	        armor_groups = {fleshy=15},
@@ -281,7 +285,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:leggings_gold", {
 	        description = S("Unbreakable Gold Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_gold.png",
+	        inventory_image = "unbreaking_inv_leggings_gold.png",
 	        groups = {armor_legs=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.04, physics_gravity=0.04},
 	        armor_groups = {fleshy=15},
@@ -289,7 +293,7 @@ if mt_g then
         })
         armor:register_armor(":unbreaking:boots_gold", {
 	        description = S("Unbreakable Gold Boots"),
-	        inventory_image = "3d_armor_inv_boots_gold.png",
+	        inventory_image = "unbreaking_inv_boots_gold.png",
 	        groups = {armor_feet=1, armor_heal=6, armor_use=unbreaking_uses,
 		        physics_speed=-0.02, physics_gravity=0.02},
 	        armor_groups = {fleshy=10},
@@ -297,62 +301,62 @@ if mt_g then
         })
     end
     -- Mithril
-    if armor.config.material_mithril then
+    if armor.materials.mithril then
         armor:register_armor(":unbreaking:helmet_mithril", {
 	        description = S("Unbreakable Mithril Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_mithril.png",
+	        inventory_image = "unbreaking_inv_helmet_mithril.png",
 	        groups = {armor_head=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=15},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
         armor:register_armor(":unbreaking:chestplate_mithril", {
 	        description = S("Unbreakable Mithril Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_mithril.png",
+	        inventory_image = "unbreaking_inv_chestplate_mithril.png",
 	        groups = {armor_torso=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=20},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
         armor:register_armor(":unbreaking:leggings_mithril", {
 	        description = S("Unbreakable Mithril Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_mithril.png",
+	        inventory_image = "unbreaking_inv_leggings_mithril.png",
 	        groups = {armor_legs=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=20},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
         armor:register_armor(":unbreaking:boots_mithril", {
 	        description = S("Unbreakable Mithril Boots"),
-	        inventory_image = "3d_armor_inv_boots_mithril.png",
+	        inventory_image = "unbreaking_inv_boots_mithril.png",
 	        groups = {armor_feet=1, armor_heal=12, armor_use=unbreaking_uses},
 	        armor_groups = {fleshy=15},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
     end
     -- Crystal
-    if armor.config.material_crystal then
+    if armor.materials.crystal then
         armor:register_armor(":unbreaking:helmet_crystal", {
 	        description = S("Unbreakable Crystal Helmet"),
-	        inventory_image = "3d_armor_inv_helmet_crystal.png",
+	        inventory_image = "unbreaking_inv_helmet_crystal.png",
 	        groups = {armor_head=1, armor_heal=12, armor_use=unbreaking_uses, armor_fire=1},
 	        armor_groups = {fleshy=15},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
         armor:register_armor(":unbreaking:chestplate_crystal", {
 	        description = S("Unbreakable Crystal Chestplate"),
-	        inventory_image = "3d_armor_inv_chestplate_crystal.png",
+	        inventory_image = "unbreaking_inv_chestplate_crystal.png",
 	        groups = {armor_torso=1, armor_heal=12, armor_use=unbreaking_uses, armor_fire=1},
 	        armor_groups = {fleshy=20},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
         armor:register_armor(":unbreaking:leggings_crystal", {
 	        description = S("Unbreakable Crystal Leggings"),
-	        inventory_image = "3d_armor_inv_leggings_crystal.png",
+	        inventory_image = "unbreaking_inv_leggings_crystal.png",
 	        groups = {armor_legs=1, armor_heal=12, armor_use=unbreaking_uses, armor_fire=1},
 	        armor_groups = {fleshy=20},
 	        damage_groups = {cracky=2, snappy=1, level=3},
         })
         armor:register_armor(":unbreaking:boots_crystal", {
 	        description = S("Unbreakable Crystal Boots"),
-	        inventory_image = "3d_armor_inv_boots_crystal.png",
+	        inventory_image = "unbreaking_inv_boots_crystal.png",
 	        groups = {armor_feet=1, armor_heal=12, armor_use=unbreaking_uses, physics_speed=1,
 			        physics_jump=0.5, armor_fire=1},
 	        armor_groups = {fleshy=15},
