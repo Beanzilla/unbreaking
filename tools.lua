@@ -1016,11 +1016,11 @@ if unbreaking_hoe and mt_g then
 		    })
 	    elseif def.material then
 		    minetest.register_craft({
+			    type = "shapeless",
 			    output = name:sub(2),
 			    recipe = {
-				    {def.material, def.material},
-				    {"", "group:stick"},
-				    {"", "group:stick"}
+				    def.material,
+				    "farming:hoe_"..def.material_name
 			    }
 		    })
 	    end
@@ -1082,6 +1082,7 @@ if unbreaking_hoe then
 		    inventory_image = "unbreaking_tool_woodhoe.png",
 		    max_uses=unbreaking_uses,
 		    material = "group:wood",
+			material_name = "wood",
 		    groups = {hoe = 1, flammable = 2},
 	    })
 	    register_hoe2(":unbreaking:hoe_stone", {
@@ -1089,6 +1090,7 @@ if unbreaking_hoe then
 		    inventory_image = "unbreaking_tool_stonehoe.png",
 		    max_uses=unbreaking_uses,
 		    material = "group:stone",
+			material_name = "stone",
 		    groups = {hoe = 1}
 	    })
 	    register_hoe2(":unbreaking:hoe_steel", {
@@ -1096,6 +1098,7 @@ if unbreaking_hoe then
 		    inventory_image = "unbreaking_tool_steelhoe.png",
 		    max_uses=unbreaking_uses,
 		    material = "default:steel_ingot",
+			material_name = "steel",
 		    groups = {hoe = 1}
 	    })
         minetest.log("action", "[unbreaking] Default Hoes now Unbreakable!")
