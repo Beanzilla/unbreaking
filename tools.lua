@@ -996,7 +996,7 @@ if unbreaking_hoe and mt_g then
 		    def.inventory_image = "unknown_item.png"
 	    end
 	    if def.max_uses == nil then
-		    def.max_uses = 30
+		    def.max_uses = unbreaking_uses
 	    end
 	    -- Register the tool
 	    minetest.register_tool(name, {
